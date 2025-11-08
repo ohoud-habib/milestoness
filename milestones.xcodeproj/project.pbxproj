@@ -29,9 +29,32 @@
 		5C3B180F2EBCF1610045F1A1 /* milestonesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = milestonesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5C3B18552EBCF5BE0045F1A1 /* Exceptions for "milestones" folder in "milestonesTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				GetStartedScreen.swift,
+				SplashScreen.swift,
+			);
+			target = 5C3B18042EBCF1610045F1A1 /* milestonesTests */;
+		};
+		5C3B18562EBCF5BE0045F1A1 /* Exceptions for "milestones" folder in "milestonesUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				GetStartedScreen.swift,
+				SplashScreen.swift,
+			);
+			target = 5C3B180E2EBCF1610045F1A1 /* milestonesUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		5C3B17F72EBCF1600045F1A1 /* milestones */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5C3B18552EBCF5BE0045F1A1 /* Exceptions for "milestones" folder in "milestonesTests" target */,
+				5C3B18562EBCF5BE0045F1A1 /* Exceptions for "milestones" folder in "milestonesUITests" target */,
+			);
 			path = milestones;
 			sourceTree = "<group>";
 		};
