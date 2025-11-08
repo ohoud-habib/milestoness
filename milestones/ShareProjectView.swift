@@ -23,12 +23,15 @@ struct ShareProjectView: View {
     let categories = [
         ("App Store Launch", "🚀"),
         ("Design Project", "🎨"),
-        ("Code Project", "💻")
+        ("Code Project", "💻"),
+        ("Case Study ", "🧾"),
+        ("Presenting", "🎤"),
+        ("Other", "⭐️")
     ]
 
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            Color.background.ignoresSafeArea()
 
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 25) {
@@ -39,13 +42,13 @@ struct ShareProjectView: View {
 
                     ZStack {
                         RoundedRectangle(cornerRadius: 20)
-                            .fill(.ultraThinMaterial)
+                            .fill(.windowBackground)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 20)
                                     .stroke(Color.white.opacity(0.2), lineWidth: 1)
                             )
-                            .frame(height: 150)
-                            .shadow(color: .black.opacity(0.4), radius: 20, x: 0, y: 10)
+                            .frame(width: 335,height: 150)
+                            .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 10)
 
                         if let image = selectedImage {
                             Image(uiImage: image)
@@ -56,10 +59,12 @@ struct ShareProjectView: View {
                                 .clipped()
                         } else {
                             VStack {
-                                Image(systemName: "plus")
+                                Image(systemName: "square.and.arrow.up")
                                     .font(.system(size: 40))
                                     .foregroundColor(.white)
+                                    .padding( 10)
                                 Text("Capture your milestones!\nAdd a photo or a file to your project")
+                                    .font(.system(size: 14))
                                     .foregroundColor(.white.opacity(0.7))
                                     .multilineTextAlignment(.center)
                                     .font(.subheadline)
@@ -74,24 +79,26 @@ struct ShareProjectView: View {
 
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Project Title")
+                            .font(.system(size: 16))
                             .foregroundColor(.white)
-                            .font(.headline)
+                         //   .font(.headline)
                         TextField("Project Title", text: $projectTitle)
                             .padding()
-                            .background(.ultraThinMaterial)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                           // .background(Color.white.opacity(0.15))
+                            .frame(width: 335, height: 50)
+                            .background( Color.black.opacity(0.3))
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
                             .overlay(
-                                RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color.white.opacity(0.15))
-                            )
-                            .foregroundColor(.white)
+                                RoundedRectangle(cornerRadius: 16)
+                                    .stroke( Color.white.opacity(0.1), lineWidth: 1)
+                            )                            .foregroundColor(.white)
                     }
 
                     VStack(alignment: .leading, spacing: 12) {
                         Text("Category")
                             .foregroundColor(.white)
-                            .font(.headline)
-
+                            .font(.system(size: 16))
+                            .padding(.horizontal, 24)
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 16) {
                                 ForEach(categories, id: \.0) { category in
@@ -106,7 +113,7 @@ struct ShareProjectView: View {
                                                 .font(.footnote)
                                                 .foregroundColor(.white)
                                         }
-                                        .frame(width: 110, height: 110)
+                                        .frame(width: 100, height: 120)
                                         .background(isSelected ? Color.white.opacity(0.15) : Color.black.opacity(0.3))
                                         .clipShape(RoundedRectangle(cornerRadius: 16))
                                         .overlay(
@@ -124,17 +131,31 @@ struct ShareProjectView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Co owners")
                             .foregroundColor(.white)
-                            .font(.headline)
-                        TextField("Add people to your project", text: $coOwners)
+                            .font(.system(size: 16))
+                        TextField("galsubaie24@ twq.idserve.net", text: $coOwners)
                             .padding()
-                            .background(.ultraThinMaterial)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                            .frame(width: 335, height: 50)
+                            .background( Color.black.opacity(0.3))
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
                             .overlay(
-                                RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color.white.opacity(0.15))
+                                RoundedRectangle(cornerRadius: 16)
+                                    .stroke( Color.white.opacity(0.1), lineWidth: 1)
                             )
                             .foregroundColor(.white)
+                        
+                        HStack {
+                            Image(systemName: "info.circle")
+                                .foregroundColor(.white.opacity(0.3))
+                                .font(.system(size: 14))
+                            Text("Mention co-owners academy email")
+                                .foregroundColor(.white.opacity(0.3))
+                                .font(.system(size: 14))
+                            
+                            
+                        }
                     }
+                    
+                    .padding()
 
                     Button(action: {
                         if let selectedImage = selectedImage,
@@ -156,7 +177,7 @@ struct ShareProjectView: View {
                                 .font(.headline)
                                 .foregroundColor(.black)
                         }
-                        .frame(width: 375, height: 70)
+                        .frame(width: 335, height: 50)
                         .background(Color.white)
                         .clipShape(RoundedRectangle(cornerRadius: 49))
                         .overlay(
@@ -200,7 +221,7 @@ struct ShareProjectView: View {
                              .overlay(RoundedRectangle(cornerRadius: 24).stroke(Color.white.opacity(0.25)))
                              .shadow(color: .black.opacity(0.5), radius: 20, x: 0, y: 10)
                              .transition(.scale.combined(with: .opacity))
-                             .offset(x:-55,y: -75)
+                             .offset(x:-30,y: -75)
             }
         }
         // Pickers

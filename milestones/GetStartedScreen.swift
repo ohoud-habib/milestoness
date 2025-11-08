@@ -36,6 +36,7 @@ struct ReusableCapsuleButton: View {
                 .shadow(radius: 5)
                 .padding(.horizontal, 25)
         }
+        .padding(.bottom, 30)
     }
 }
 
@@ -63,6 +64,7 @@ struct GetStartedScreen: View {
                     },
                     textColor: .black,
                     buttonColor: .white
+                    
                 )
                 .padding(.bottom, 40)
             }
